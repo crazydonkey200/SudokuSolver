@@ -26,6 +26,7 @@ class SudokuBoard:
                     string = string + "|".center(padding)
                 string = string + str(self.CurrentGameboard[i][j]).center(padding)
             mainString = mainString + "\n" + string
+        mainString = "\n" + mainString + "\n" + ("-".center(padding)*(self.BoardSize+square-1))
         return mainString
     
     def __str__(self):
@@ -41,6 +42,7 @@ class SudokuBoard:
                     string = string + "|".center(padding)
                 string = string + str(self.CurrentGameboard[i][j]).center(padding)
             mainString = mainString + "\n" + string
+        mainString = "\n" + mainString + "\n" + ("-".center(padding)*(self.BoardSize+square-1))
         return mainString
     
     def set_value(self, row, col, value):
