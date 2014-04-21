@@ -112,7 +112,7 @@ def init_board( file_name ):
 
 def isLegalMove(board, row, col, val):
     if board.CurrentGameboard[row][col] != 0: 
-        return false
+        return False
     else:
         for i in range(board.BoardSize):
             if (board.CurrentGameboard[row][i] == val or board.CurrentGameboard[i][col] == val): 
