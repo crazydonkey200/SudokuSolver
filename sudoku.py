@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import struct, string, math
+import struct, string, math, os
 
 #this will be the game object your player will manipulate
 class SudokuBoard:
@@ -134,3 +134,27 @@ def getQuadrant(board, row, col):
             quadrant.append((square * sq_row + i,square * sq_col +j))
     return quadrant
             
+##def solveAllPuzzles(directory): ##directory will be where the puzzles are stored
+##    answers4 = []
+##    answers9 = []
+##    answers16 = []
+##    answers25 = []
+##    for puzzle in os.listdir(directory):
+##        board = init_board(directory + puzzle)
+##
+##        if puzzle[0] == "4": arr = answers4
+##        elif puzzle[0] == "9": arr = answers9
+##        elif puzzle[0] == "1": arr = answers16
+##        elif puzzle[0] == "2": arr = answers25
+##
+##        backTrackingOutput = backTracking.backTrack(board)
+##        arr.append(backTrackingOutput[0])
+##
+##    Avg9 = reduce(lambda x, y: x + y, answers9) / len(answers9)
+##    Avg16 = reduce(lambda x, y: x + y, answers16) / len(answers16)
+##    Avg25 = reduce(lambda x, y: x + y, answers25) / len(answers25)
+##
+##    print "9 puzzles took us an average of " + str(Avg9) + " moves"
+##    print "16 puzzles took us an average of " + str(Avg16) + " moves"
+##    print "25 puzzles took us an average of " + str(Avg25) + " moves"
+##    return
