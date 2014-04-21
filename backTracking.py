@@ -1,10 +1,14 @@
 from sudoku import *
 
-def backTrack(board, numSteps = 0, size = 0):
-    numSteps += 1
+numChecks = 0
+
+def backTrack(board, size = 0):
+    global numChecks
+    if numChecks % 25 == 0: print numChecks
     if size == 0: size = board.BoardSize
     if iscomplete(board.CurrentGameboard):
-        print "\n this took us " + str(numSteps) + " steps"
+        print "\n this took us " + str(numChecks) + " consistency checks"
+        numChecks = 0 ## just to reset the global
         return board # this prints the board
     else:
         for r in range(size):
@@ -12,9 +16,10 @@ def backTrack(board, numSteps = 0, size = 0):
                 if board.CurrentGameboard[r][c] != 0: continue
                 else:
                     for i in range(1, size+1):
+                        numChecks += 1
                         if isLegalMove(board, r, c, i):
                             board.set_value(r, c, i)
-                            tryMove = backTrack(board, numSteps, size)
+                            tryMove = backTrack(board, size)
                             if tryMove == False:
                                 board.set_value(r, c, 0)
                                 continue
@@ -22,5 +27,6 @@ def backTrack(board, numSteps = 0, size = 0):
                         else:
                             continue
                     return False ## if we can't put anything in an open spot, we can stop right now.
+    numChecks = 0 ## just to reset the global
     return False
                             
