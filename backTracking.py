@@ -4,7 +4,7 @@ numChecks = 0
 
 def backTrack(board, size = 0):
     global numChecks
-    if numChecks % 25 == 0: print numChecks
+    if numChecks % 1000 == 0: print numChecks
     if size == 0: size = board.BoardSize
     if iscomplete(board.CurrentGameboard):
         print "\n this took us " + str(numChecks) + " consistency checks"
